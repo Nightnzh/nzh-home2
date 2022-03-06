@@ -1,4 +1,14 @@
 
+*{
+  box-sizing: border-box;
+  
+}
+
+section > div {
+  border: #000;
+}
+
+
 html,body{
   margin: 0;
   padding: 0;
@@ -23,7 +33,7 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   height: 100%;
-  width: calc(100vw + 18px);
+  /* width: calc(100vw + 18px); */
   overflow: auto;
 }
 
@@ -32,11 +42,15 @@ body {
 }
 
 a{
-  
+  color: black;
   text-decoration: none;
 }
 
 a:visited{
+  color: black
+}
+
+a:link{
   color: black
 }
 
@@ -60,6 +74,7 @@ a:visited{
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  /* font-size: 12px; */
   color: white;
 }
 

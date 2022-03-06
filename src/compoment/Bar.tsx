@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import React from "react";
 
 
 type ColorProps = {
@@ -8,12 +10,12 @@ type ColorProps = {
 const Bar = (colorProps : ColorProps = {barColor:"#acb486"}) =>{
 
   return(
-    <span style={{
+    <Box style={{
       width: "30px",
       transformOrigin: "left",
       backgroundColor : `${colorProps.barColor}`
     }}>
-    </span>
+    </Box>
   )
 }
 

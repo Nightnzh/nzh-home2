@@ -1,6 +1,5 @@
-import { Box, margin } from "@mui/system";
+import { Box } from "@mui/system";
 import React from "react";
-import { Link } from "react-router-dom";
 import img1 from "../../asset/img/recruit.jpeg"
 import img2 from "../../asset/img/top/leaf_2.png"
 

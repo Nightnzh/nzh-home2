@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { Box, Button, keyframes, Slide, Slider, SxProps, Theme, useMediaQuery } from "@mui/material"
+import { Box, keyframes } from "@mui/material"
 import Bar from "../../compoment/Bar"
 
 import img1 from "../../asset/img/background.jpeg"
@@ -9,15 +9,11 @@ import product3 from "../../asset/img/product-3.jpeg"
 import product4 from "../../asset/img/product-4.jpeg"
 import product5 from "../../asset/img/product-5.jpeg"
 import product6 from "../../asset/img/product-6.jpeg"
-import React, { createRef, useRef, useState } from "react"
+import React, { useRef } from "react"
 import { useDraggable } from "react-use-draggable-scroll"
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-import { pink } from '@mui/material/colors';
-import SvgIcon, { SvgIconClasses } from '@mui/material/SvgIcon';
-import { CommonProps } from "@mui/material/OverridableComponent"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { Avatar } from '@mui/material';
 

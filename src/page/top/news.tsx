@@ -1,4 +1,4 @@
-import { Box, padding } from '@mui/system'
+import { Box } from '@mui/system'
 import React from 'react'
 
 import leaf3 from '../../asset/img/top/leaf_3.png'
@@ -118,12 +118,12 @@ const TopSectionNews = ()=>{
             }
           }}
         >
-          {linkData.map((value)=>{
+          {linkData.map((value,index)=>{
             return (
-              <>
+              <div key={index}>
                 <Box sx={{height:"0.1px",backgroundColor:"#555"}}/>
                 <NewsLink to={value.to} des={value.des} creatTime={value.createTime}/>
-              </>
+              </div>
             )
           })}
           <Box sx={{height:"0.1px",backgroundColor:"#555"}}/>

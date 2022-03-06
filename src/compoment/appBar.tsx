@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Modal } from "@mui/material";
-import { Box, style } from "@mui/system";
+import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import logo from "../asset/img/logo/logo.svg"
@@ -16,17 +16,20 @@ const debugBorder = "1px solid black"
 const AppBar = () => {
 
 
-  //路徑
-  const [target, setTarget] = useState("/")
   //判斷路徑是否為targetPath => true : 加上 current class for css
-  const isCurrent = (targetPath: string) => targetPath === target ? "current" : ""
-  const setTargetAndCloseMenu = (target: string) => { setTarget(target); setIsMenuOpen(false);  }
+  const isContain = (targetPath: string) => window.location.pathname.includes(targetPath) ? "current" : ""
+  
+ 
   // menu open max-width(800px)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  useEffect(()=>{
-    
-  })
+
+  useEffect(
+    ()=>{
+      setIsMenuOpen(false);
+    },
+  [window.location.pathname])
+
 
   return (
     <Header>
@@ -38,14 +41,15 @@ const AppBar = () => {
       }}>
         <Link to="/"> <img src={logo} alt="logo" srcSet={logo} style={{ width: "6vw", minWidth: "78px", }} /> </Link>
         <Box sx={{ display: "flex", flexWrap: "wrap", }} >
-          <MyLink to="/top" className={isCurrent("/top")} onClick={() => setTargetAndCloseMenu("/top")}>Top <div className="dot" /> </MyLink>
-          <MyLink to="/company" className={isCurrent("/company")} onClick={() => setTargetAndCloseMenu("/company")}> Company  <div className="dot"></div></MyLink>
-          <MyLink to="/our_brand" className={isCurrent("/our_brand")} onClick={() => setTargetAndCloseMenu("/our_brand")}>Our Brand<div className="dot" /></MyLink>
-          <MyLink to="/recruit" className={isCurrent("/recruit")} onClick={() => setTargetAndCloseMenu("/recruit")}>Recruit<div className="dot" /></MyLink>
-          <MyLink to="/news" className={isCurrent("/news")} onClick={() => setTargetAndCloseMenu("/news")}>News<div className="dot" /></MyLink>
-          <MyLink to="/contact" className={isCurrent("/contact")} onClick={() => setTargetAndCloseMenu("/contact")}>Contact<div className="dot" /></MyLink>
-          <MyLink to="/fackbook" style={{ marginLeft: "40px" }}>Fackbook</MyLink>
-          <MyLink to="/english" className={isCurrent("/english")} onClick={() => setTargetAndCloseMenu("/english")}>English<div className="dot" /></MyLink>
+          <MyLink to="/top" className={isContain("/top")} >Top <div className="dot" /> </MyLink>
+          <MyLink to="/company" className={isContain("/company")} >Company<div className="dot"></div></MyLink>
+          <MyLink to="/our_brand/femmue" className={isContain("/our_brand")} >Our Brand<div className="dot" /></MyLink>
+          <MyLink to="/recruit" className={isContain("/recruit")} >Recruit<div className="dot" /></MyLink>
+          <MyLink to="/news" className={isContain("/news")} >News<div className="dot" /></MyLink>
+          <MyLink to="/contact" className={isContain("/contact")} >Contact<div className="dot" /></MyLink>
+          {/* FIXME: Cant link to facebook */}
+          <MyLink to="#!" style={{ marginLeft: "40px" }}>Fackbook</MyLink>
+          <MyLink to="/english" className={isContain("/english")} >English<div className="dot" /></MyLink>
           <MenuButton
             className={isMenuOpen === true ? "close" : ""}
             onClick={() => { setIsMenuOpen(!isMenuOpen) }}
@@ -66,24 +70,25 @@ const AppBar = () => {
           // ml:"20px"
           position:"relative"
         }}>
-          <MenuItemLink to="/top" className={isCurrent("/top")} onClick={() => setTargetAndCloseMenu("/top")}>top</MenuItemLink>
-          <MenuItemLink to="/company" className={isCurrent("/company")} onClick={() => setTargetAndCloseMenu("/company")}>company</MenuItemLink>
-          <MenuItemLink to="/our_brand" className={isCurrent("/our_brand")} onClick={() => setTargetAndCloseMenu("/our_brand")}>our_brand</MenuItemLink>
-          <MenuItemLink to="/recruit" className={isCurrent("/recruit")} onClick={() => setTargetAndCloseMenu("/recruit")}>recruit</MenuItemLink>
-          <MenuItemLink to="/news" className={isCurrent("/news")} onClick={() => setTargetAndCloseMenu("/news")}>news</MenuItemLink>
-          <MenuItemLink to="/contact" className={isCurrent("/contact")} onClick={() => setTargetAndCloseMenu("/contact")}>contact</MenuItemLink>
-          <Box sx={{margin:"8px 0"}}></Box>
-          <MenuItemLink to="/fackbook">fackbook</MenuItemLink>
-          <MenuItemLink to="/english" className={isCurrent("/english")} onClick={() => setTargetAndCloseMenu("/english")}>english</MenuItemLink>
+          <MenuItemLink to="/top" className={isContain("/top")}>top</MenuItemLink>
+          <MenuItemLink to="/company" className={isContain("/company")} >company</MenuItemLink>
+          <MenuItemLink to="/our_brand/femmue" className={isContain("/our_brand")} >our_brand</MenuItemLink>
+          <MenuItemLink to="/recruit" className={isContain("/recruit")} >recruit</MenuItemLink>
+          <MenuItemLink to="/news" className={isContain("/news")} >news</MenuItemLink>
+          <MenuItemLink to="/contact" className={isContain("/contact")} >contact</MenuItemLink>
+          <Box sx={{margin:"8px 0"}}></Box> 
+          {/* FIXME: Cant link to facebook */}
+          <MenuItemLink to="#!" >fackbook</MenuItemLink>
+          <MenuItemLink to="/english" className={isContain("/english")} >english</MenuItemLink>
           <SmallContent style={{ position:"absolute", bottom:"0", }}>WE CONTRIBUTE TO THE RICH AND BEAUTIFUL LIFE</SmallContent>
         </Box>
-      </MenuModal>
+      </MenuModal>  
     </Header>
   )
 }
 
 
-export default AppBar
+export default AppBar 
 
 const MyLink = styled(Link)`
   text-decoration: none;
@@ -99,10 +104,15 @@ const MyLink = styled(Link)`
 
   /* 設置不同屬性顏色 */
   &.current { cursor: default; font-weight: bold; }
-  &.current[ href='/top'] { color : #881232;  }
-  &.current[ href='/company'] { color : #838; }
-  &.current[ href='/our_brand'] { color : #838; }
-  &.current[ href='/recruit'] { color : #3904cb; }
+  &.current[ href*='/top'] { 
+    color : #881232;  
+  }
+  &.current[ href*='/company'] { color : #8498b0; }
+  &.current[ href*='/our_brand'] { color : #546544; }
+  &.current[ href*='/recruit'] { color : #294764; }
+  &.current[ href*='/news'] { color : #b14617; }
+  &.current[ href*='/contact'] { color : #8d213b; }
+  &.current[ href*='/english'] { color : #8d213b; }
 
   /* 底部動畫 */ 
   &:after{
@@ -124,6 +134,28 @@ const MyLink = styled(Link)`
 
   &:not(.current) > .dot{
     display : none
+  }
+
+  &.current[ href*='/top'] > .dot {
+    background-color: #811d34;
+  }
+  &.current[ href*='/company'] > .dot {
+    background-color: #8498b0;
+  }
+  &.current[ href*='/our_brand'] > .dot {
+    background-color: #546544;
+  }
+  &.current[ href*='/recruit'] > .dot {
+    background-color: #294764;
+  }
+  &.current[ href*='/news'] > .dot {
+    background-color: #b14617;
+  }
+  &.current[ href*='/contact'] > .dot {
+    background-color: #8d213b;
+  }
+  &.current[ href*='/english'] > .dot {
+    background-color: #811d34;
   }
 
   /* for responsive hide */
@@ -218,6 +250,8 @@ const MenuButton = styled.button`
   @media screen and (max-width: 800px ){
     display: block;
   }
+
+
 
 `
 

@@ -61,10 +61,14 @@ const MyFooter = () => {
         <Box 
           sx={{
             // border : "1px solid white",
+            display:"flex",
+            justifyContent:"space-between",
             flex : 1,
+            flexWrap : "wrap",
             "@media (max-width:770px)" : {
               // marginRight: "2rem",
-              flex : "none",
+              flex : "none",  
+              display:"block"
             }
           }}>
           
@@ -85,13 +89,12 @@ const MyFooter = () => {
               <MyLink to="/news" >news</MyLink>
               <MyLink to="/contact" >contact</MyLink>
               <MyLink to="/" >fackbook</MyLink>
-              <MyLink to="/" >fackbook</MyLink>
               <MyLink to="/english">english</MyLink>
             </Box>
             <Box 
             sx={{
               display:"flex",
-              "flexWrap":"wrap",
+              // "flexWrap":"wrap",
               "@media (max-width:770px)" : {
               // width : "30%",
               marginRight: "5rem",

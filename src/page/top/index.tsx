@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
-import { Box, Container, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import React from 'react'
 import BannerL from "../../asset/img/banner-l.jpeg"
 import BannerSm from "../../asset/img/banner-s.jpeg"
 import Leaf1 from "../../asset/img/top/leaf_1.png"
-import Leaf2 from "../../asset/img/top/leaf_2.png"
-import Leaf3 from "../../asset/img/top/leaf_3.png"
 import Our1 from "../../asset/img/our-1.jpeg"
 import Our2 from "../../asset/img/our-2.jpeg"
 import { Link } from "react-router-dom";
