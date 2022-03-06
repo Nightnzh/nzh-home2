@@ -137,7 +137,7 @@ const MyLink = styled(Link)`
   padding : 2px 8px ;
   /* max-lines : 1; */
   white-space: nowrap;
-  &:visited {
+  &:visited , &:link {
     color: white
   }
 `
