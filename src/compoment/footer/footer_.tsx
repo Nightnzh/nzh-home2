@@ -84,7 +84,7 @@ const MyFooter = () => {
               }}>
               {/* <MyLink to="/top" >TOP</MyLink> */}
               <MyLink to="/company" >COMPANY</MyLink>
-              <MyLink to="/our_brand" >OUR BRAND</MyLink>
+              <MyLink to="/our_brand/femmue" >OUR BRAND</MyLink>
               <MyLink to="/recruit" >recruit</MyLink>
               <MyLink to="/news" >news</MyLink>
               <MyLink to="/contact" >contact</MyLink>
