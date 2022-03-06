@@ -102,8 +102,8 @@ const MyFooter = () => {
               flexDirection : "column",
               mt: "2rem"
              }}}>
-              <MyLink to="/site" >site policy</MyLink>
-              <MyLink to="/private">private policy</MyLink>
+              <MyLink to="#!" >site policy</MyLink>
+              <MyLink to="#!">private policy</MyLink>
             </Box>
           </Box>
         </Box>
